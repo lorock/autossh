@@ -13,10 +13,10 @@ go写的一个ssh远程客户端。可一键登录远程服务器，主要用来
 最后，下定决心用golang写一个ssh client。为什么不用C或者Java？因为golang是世界上最好的编译语言，PHP是世界上最好的脚本语言。
 
 ## 版本
-v0.2
+v0.21
 
 ## 下载
-[https://github.com/islenbo/autossh/releases](https://github.com/islenbo/autossh/releases)
+[https://github.com/lorock/autossh/releases](https://github.com/lorock/autossh/releases)
 
 ## 配置
 下载编译好的二进制包autossh，在autossh同级目录下新建一个servers.json文件。
@@ -44,7 +44,7 @@ v0.2
 ]
 ```
 保存servers.json，执行autossh，即可看到相应服务器信息，输入对应序号，即可自动登录到服务器
-![登录演示](https://github.com/islenbo/autossh/raw/master/doc/images/demo.gif)
+![登录演示](doc/images/demo.gif)
 
 ## 高级用法
 设置alias，可在任意目录下调用
