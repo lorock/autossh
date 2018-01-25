@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="v0.2"
+VERSION="v0.21"
 PROJECT="autossh"
 
 function build() {
@@ -12,7 +12,7 @@ function build() {
     echo "build ${package} ..."
     mkdir -p "./releases/${package}"
     CGO_ENABLED=0 GOOS=${os} GOARCH=${arch} go build -o "./releases/${package}/autossh" main.go
-    cp ./servers.example.json "./releases/${package}/servers.json"
+    cp ./servers.example.json "./releases/${package}/servers.example.json"
     cd ./releases/
     zip -r "./${package}.zip" "./${package}"
     echo "clean ${package}"
