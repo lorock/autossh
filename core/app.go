@@ -1,17 +1,17 @@
 package core
 
 import (
-	"fmt"
-	"strconv"
-	"io/ioutil"
-	"encoding/json"
-	"os"
 	"bytes"
+	"encoding/json"
 	"errors"
+	"fmt"
+	"io/ioutil"
+	"os"
+	"strconv"
 )
 
 // 版本号
-const VERSION = "0.2"
+const VERSION = "0.21"
 
 type App struct {
 	ServersPath string
@@ -61,11 +61,11 @@ func (app *App) Exec() {
 
 // 启动脚本
 func (app *App) start() {
-	Printer.Infoln("========== 欢迎使用 Auto SSH ==========")
+	Printer.Infoln("========== 欢迎使用 Lorock Auto SSH ==========")
 	for i, server := range app.servers {
-		Printer.Logln(" ["+strconv.Itoa(i+1)+"]", server.Name)
+		Printer.Logln(" ["+strconv.Itoa(i+1)+"] => ", server.Name)
 	}
-	Printer.Infoln("=======================================")
+	Printer.Infoln("=============================================")
 
 	server := app.inputSh()
 	Printer.Infoln("你选择了: " + server.Name)
@@ -223,15 +223,22 @@ func (app *App) saveServers() error {
 
 // 打印列表
 func (app *App) list() {
+	// var i int
+	i := 0
 	for _, server := range app.servers {
-		Printer.Logln(server.Name)
+		i++
+		// Printer.Logln(server.Ip)
+		// Printer.Logln(i)
+		// Printer.Logln(server.Name)
+		out := " [" + strconv.Itoa(i) + "] => " + server.Name
+		Printer.Logln(out)
 	}
 }
 
 // 版本信息
 func (app *App) version() {
-	fmt.Println("Autossh", VERSION, "。")
-	fmt.Println("由 Lenbo 编写，项目地址：https://github.com/islenbo/autossh。")
+	fmt.Println("Lorock Autossh", VERSION, "。")
+	fmt.Println("由 Lorock.Xu 编写，项目地址：https://github.com/lorock/autossh。")
 }
 
 // 显示帮助信息
@@ -240,13 +247,13 @@ func (app *App) help() {
 	fmt.Println("基本用法：")
 	fmt.Println("  直接输入autossh不带任何参数，列出所有服务器，输入对应编号登录。")
 	fmt.Println("参数：")
-	fmt.Println("  -v, --version", "\t", "显示 autossh 的版本信息。")
+	fmt.Println("  -v, --version", "\t", "显示 Lorock Autossh 的版本信息。")
 	fmt.Println("  -h, --help   ", "\t", "显示帮助信息。")
 	fmt.Println("操作：")
 	fmt.Println("  list         ", "\t", "显示所有server。")
-	fmt.Println("  add <name>   ", "\t", "添加一个 server。如：autossh add vagrant。")
-	fmt.Println("  edit <name>  ", "\t", "编辑一个 server。如：autossh edit vagrant。")
-	fmt.Println("  remove <name>", "\t", "删除一个 server。如：autossh remove vagrant。")
+	fmt.Println("  add <name>   ", "\t", "添加一个 server。如：autossh add Lorockops。")
+	fmt.Println("  edit <name>  ", "\t", "编辑一个 server。如：autossh edit Lorockops。")
+	fmt.Println("  remove <name>", "\t", "删除一个 server。如：autossh remove Lorockops。")
 }
 
 // 判断server是否存在

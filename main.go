@@ -1,10 +1,11 @@
 package main
 
 import (
-	"autossh/core"
-	"path/filepath"
-	"os"
 	"fmt"
+	"os"
+	"path/filepath"
+
+	"github.com/lorock/autossh/core"
 )
 
 func main() {
