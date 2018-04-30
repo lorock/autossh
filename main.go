@@ -28,7 +28,7 @@ func main() {
 	app.Exec()
 }
 
-// 获取家目录
+// Home 获取家目录
 func Home() (string, error) {
 	user, err := user.Current()
 	if nil == err {
@@ -45,6 +45,7 @@ func Home() (string, error) {
 	return homeUnix()
 }
 
+// homeUnix Unix
 func homeUnix() (string, error) {
 	// First prefer the HOME environmental variable
 	if home := os.Getenv("HOME"); home != "" {
@@ -67,6 +68,7 @@ func homeUnix() (string, error) {
 	return result, nil
 }
 
+// homeWindows windows系统
 func homeWindows() (string, error) {
 	drive := os.Getenv("HOMEDRIVE")
 	path := os.Getenv("HOMEPATH")

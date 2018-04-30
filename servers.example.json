@@ -1,19 +1,19 @@
 [
   {
-    "name": "vagrant",
-    "ip": "192.168.33.10",
+    "name": "密码登陆",
+    "ip": "192.168.3.10",
     "port": 22,
     "user": "root",
-    "password": "vagrant",
+    "password": "您的密码",
     "method": "password"
   },
   {
-    "name": "ssh-pem",
-    "ip": "192.168.33.11",
+    "name": "ssh-pem私钥登陆",
+    "ip": "192.168.3.11",
     "port": 22,
     "user": "root",
-    "password": "your pem file password or empty",
+    "password": "私钥密码或者空",
     "method": "pem",
-    "key": "your pem file path"
+    "key": "私钥所在的绝对路径"
   }
 ]
